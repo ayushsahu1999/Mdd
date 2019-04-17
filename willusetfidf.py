@@ -12,6 +12,7 @@ Created on Wed Apr 17 22:13:41 2019
 
 
     # Importing the Libraries
+def Uniqueness():
     import numpy as np
     import pandas as pd
     import math
@@ -82,3 +83,4 @@ Created on Wed Apr 17 22:13:41 2019
     for i in range(0, 347):
         for j in range(0, len(oc[i])):
             idf1[i][j] = oc[i][j] * idf1[i][j]
+    return (idf1)
