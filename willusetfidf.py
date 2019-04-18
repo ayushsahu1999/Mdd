@@ -49,6 +49,7 @@ def Uniqueness():
             oc[i][j] = oc[i][j]/(len(oc[i]))
 
 
+    st = 'healthcare service aggregator'
     # Getting the Idf Value
     i = 0
     j = 0
@@ -80,7 +81,28 @@ def Uniqueness():
         # Making the TFIDF Model
     i = 0
     j = 0
+    ans = []
+    yam = 0
+    r = st.split()
     for i in range(0, 347):
         for j in range(0, len(oc[i])):
             idf1[i][j] = oc[i][j] * idf1[i][j]
-    return (idf1)
+    
+    for k in r:
+        yam = 0
+        for i in range(0, 347):
+            for j in range(0, len(corpus[i])):
+                if (k == corpus[i][j]):
+                    ans.append(idf1[i][j])
+                    yam = 10
+                    break
+            if (yam == 10):
+                break
+            
+            
+    # getting average value
+    add = 0
+    for i in ans:
+        add = add + i
+    add = add / len(ans)
+    return (add)
